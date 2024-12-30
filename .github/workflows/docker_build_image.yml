@@ -18,6 +18,8 @@ jobs:
     - name: navigate to directory
       run: cd basic
     - name: Build Docker image
-      run: docker build . --file Dockerfile --tag basic:$(date +%s) . 
+      run: docker build ./api/ -t troinux/master_docker.io:latest-basic
     - name: Push Docker image
-      run: docker push basic:$(date +%s)
+      run: |
+      do
+         docker push troinux/master_docker.io:latest-basic
