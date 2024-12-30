@@ -27,15 +27,15 @@ COPY . /usr/src
 ENV API_KEY='STORE-KEYS-SECURELY'
 
 # The <EXPOSE> is a command that allows us to enable network ports  access our application by external traffic.
-EXPOSE 8000
+EXPOSE 8080
 
 # The <CMD> will execute once the image is built to run the application inside the container.
 # CMD ["python3","-m","http.server","8000"]
 
 # The <ENTRYPOINT> allows you to pass arguments to the command when you run it (optional).
-ENTRYPOINT ["python3","-m", "http.server" ]
+# ENTRYPOINT ["python3","-m", "http.server" ]
 
-CMD ["8000"]
+CMD ["python3","-m", "http.server" ,"8080"]
 
 
 HEALTHCHECK --interval=30s --timeout=10s\
