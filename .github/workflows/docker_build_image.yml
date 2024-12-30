@@ -19,8 +19,7 @@ jobs:
       run: cd basic
     - name: Build Docker image
       run: docker build ./api/ -t troinux/master_docker.io:latest-basic
-    - name: Push Docker image
+    - name: Push Docker images
       run: |
          docker login -u troinux -p ${{secrets.API_KEY_DOCKER_HUB}}
          docker push troinux/master_docker.io:latest-basic
-         
