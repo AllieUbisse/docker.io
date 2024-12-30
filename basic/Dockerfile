@@ -2,7 +2,7 @@
 
 # The <FROM> command is used to pull a base image os.
 # FROM image-name:image-tag
-FROM debian:bullseye-20241230
+FROM debian:latest
 
 # The <WORKDIR> is the 1st directory the program will CD to it once it starts.
 # All commands will start executing from this DIR.
@@ -11,14 +11,17 @@ WORKDIR /usr/src
 # The <RUN> command will help execute linux based commnads.
 # e.g <apt-get> a linux package manager to install required softwares.
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip
+    apt-get install -y python3 python3-pip 
+
+# RUN pip install --upgrade pip
+# RUN pip install -r requirements.txt
 
 # Using <RUN> to execute linux command to create a non root user, to run the program with configurable permissions.
 RUN useradd --create-home appuser
 USER appuser
 
 # The <COPY> command will copy files from the local machine over to the image.
-COPY app.py
+COPY . /usr/src
 
 # The <ENV> will help set environment variables from your secured location, use dockerignore to prevent testing key to be exposed.
 ENV API_KEY='STORE-KEYS-SECURELY'
