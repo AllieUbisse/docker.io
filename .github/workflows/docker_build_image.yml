@@ -16,7 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: navigate to directory
-      run: cd ./basic
-      
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: cd basic
+    - name: Build Docker image
+      run: docker build . --file Dockerfile --tag basic:$(date +%s) . 
+    - name: Push Docker image
+      run: docker push basic:$(date +%s)
