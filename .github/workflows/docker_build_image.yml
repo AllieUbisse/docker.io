@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Log into registry ${{ secrets.REGISTRY }}
+      - name: Checkout repo to container
         uses: actions/checkout@v4
       - name: Log into registry ${{ secrets.REGISTRY }}
         if: github.event_name != 'pull_request'
