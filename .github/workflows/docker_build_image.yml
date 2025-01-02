@@ -41,12 +41,12 @@ jobs:
         with: 
           context: . 
           push: true 
-          tags:  ${{ secrets.DOCKER_HUB_ACTOR }}/${{ secrets.REGISTRY }}:${{ steps.sanitize.outputs.tag 
+          tags:  ${{ secrets.DOCKER_HUB_ACTOR }}/${{ secrets.REGISTRY }}:${{ steps.sanitize.outputs.tag }}
 
       
-      - name: Build Docker image
-        run: docker build . -t ${{ secrets.API_KEY_DOCKER_HUB }}/master_docker.io:latest-basic
-      - name: Push Docker images
-        run: |
-          docker login -u ${{secrets.DOCKER_HUB_ACTOR}} -p ${{secrets.API_KEY_DOCKER_HUB}}
-          docker push ${{secrets.DOCKER_HUB_ACTOR}}/master_docker.io:latest-basic
+      # - name: Build Docker image
+      #   run: docker build . -t ${{ secrets.API_KEY_DOCKER_HUB }}/master_docker.io:latest-basic
+      # - name: Push Docker images
+      #   run: |
+      #     docker login -u ${{secrets.DOCKER_HUB_ACTOR}} -p ${{secrets.API_KEY_DOCKER_HUB}}
+      #     docker push ${{secrets.DOCKER_HUB_ACTOR}}/master_docker.io:latest-basic
