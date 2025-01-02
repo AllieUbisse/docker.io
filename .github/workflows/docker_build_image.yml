@@ -39,7 +39,7 @@ jobs:
       - name: Build and push Docker image 
         uses: docker/build-push-action@v2 
         with: 
-          context: . 
+          context: ./basic
           push: true 
           tags:  ${{ secrets.DOCKER_HUB_ACTOR }}/${{ secrets.REGISTRY }}:${{ steps.sanitize.outputs.tag }}
 
