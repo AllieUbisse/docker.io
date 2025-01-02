@@ -36,7 +36,14 @@ jobs:
       #     username: ${{ secrets.DOCKER_HUB_ACTOR }}
       #     password: ${{ secrets.API_KEY_DOCKER_HUB }}
           
+      - name: Build and push Docker image 
+        uses: docker/build-push-action@v2 
+        with: 
+          context: . 
+          push: true 
+          tags:  ${{ secrets.DOCKER_HUB_ACTOR }}/${{ secrets.REGISTRY }}:${{ steps.sanitize.outputs.tag 
 
+      
       - name: Build Docker image
         run: docker build . -t ${{ secrets.API_KEY_DOCKER_HUB }}/master_docker.io:latest-basic
       - name: Push Docker images
