@@ -13,13 +13,13 @@ jobs:
     steps:
       - name: Checkout repo to container
         uses: actions/checkout@v4
-      - name: Log into registry ${{ secrets.REGISTRY }}
-        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
-        if: github.event_name != 'pull_request'
-        with:
-          registry: ${{ secrets.REGISTRY }}
-          username: ${{ secrets.DOCKER_HUB_ACTOR }}
-          password: ${{ secrets.API_KEY_DOCKER_HUB }}
+      # - name: Log into registry ${{ secrets.REGISTRY }}
+      #   uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+      #   if: github.event_name != 'pull_request'
+      #   with:
+      #     registry: ${{ secrets.REGISTRY }}
+      #     username: ${{ secrets.DOCKER_HUB_ACTOR }}
+      #     password: ${{ secrets.API_KEY_DOCKER_HUB }}
           
       - name: navigate to directory
         run: cd basic
